@@ -1,0 +1,24 @@
+\begin{filecontents*}{newData.csv}
+	20,30,50
+\end{filecontents*}
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{csvsimple}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+
+\begin{document}
+	
+	\begin{tikzpicture}
+	\csvreader[no head]%
+	{newData.csv}
+	{1=\colVali,2=\colValii,3=\colValiii}
+	{%
+		\pie[polar, explode=0.1]
+		{\colVali/A, \colValii/B, \colValiii/C}
+	}
+	\end{tikzpicture}
+	
+\end{document}
